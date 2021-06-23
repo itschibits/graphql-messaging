@@ -4,14 +4,14 @@ import NewMessageForm from './NewMessageForm';
 import NewUserForm from './NewUserForm';
 import LandingPage from './LandingPage';
 
-function Routes() {
+function Routes({submit}) {
     return (<div>
         <Switch>
             <Route exact path="/">
                 <LandingPage />
             </Route>
             <Route exact path="/messages/new">
-                <NewMessageForm />
+                <NewMessageForm submit={submit}/>
             </Route>
             <Route exact path="/users/new">
                 <NewUserForm />
