@@ -18,6 +18,8 @@ function NavBar() {
                     <NavLink exact to="/" className="nav-link navbar-brand">Apollo Messagely</NavLink>
                     <NavLink exact to="/users/new" className="nav-link">New User</NavLink>
                     <NavLink exact to="/messages/new" className="nav-link">New Message</NavLink>
+                    <NavLink exact to="/users" className="nav-link">Users</NavLink>
+                    <NavLink exact to="/messages" className="nav-link">Messages</NavLink>
                 </Nav>
             </Navbar>
         </div >)
