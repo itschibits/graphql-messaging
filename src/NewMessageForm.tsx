@@ -1,12 +1,24 @@
-import React from 'react';
+import Form from "react-bootstrap/Form";
 
-function NewMessageForm() {
+/** NewMessageForm
+ * 
+ * Props:
+ * - username
+ * 
+ * State:
+ * - formData
+ */
+type NewMessageFormProps = {
+    username: string
+}
+function NewMessageForm({ username }: NewMessageFormProps) {
 
-    return (
-
-        <div>
-            NewMessageForm!
-        </div>)
+    return (<Form>
+        <Form.Group controlId="newMessageForm.username">
+            <Form.Label>Username</Form.Label>
+            <Form.Control type="text" placeholder="username" />
+        </Form.Group>
+    </Form>)
 }
 
 export default NewMessageForm;
