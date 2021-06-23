@@ -1,10 +1,11 @@
-import React from 'react';
-import logo from './logo.svg';
+import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 import { BrowserRouter } from 'react-router-dom';
 import Routes from "./Routes"
 import Navbar from './Navbar';
+
+
 
 function App() {
   return (
@@ -14,5 +15,6 @@ function App() {
     </BrowserRouter>
   );
 }
+
 
 export default App;
