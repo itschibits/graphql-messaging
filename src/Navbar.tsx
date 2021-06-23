@@ -11,8 +11,8 @@ import { NavLink } from "react-router-dom";
 function NavBar() {
 
     return (
-        <div>
-            <Navbar bg="dark" variant="dark" expand="lg">
+        <div className="NavBar">
+            <Navbar className="Navbg" expand="lg">
                 <Nav className="mr-auto">
                     <NavLink exact to="/" className="nav-link navbar-brand">Apollo Messagely</NavLink>
                     <NavLink exact to="/users/new" className="nav-link">New User</NavLink>
