@@ -10,14 +10,13 @@ import { useMutation } from '@apollo/client';
 
 function App() {
 
-  function submit(mutation,variable){
-    const [addNew, {data}] = useMutation(mutation);
-    addNew({variables:...variable});
-  }
+  // function submit(mutation: string, variables: Record<string, any>) {
+  //   addNew({ variables });
+  // }
   return (
     <BrowserRouter>
       <Navbar />
-      <Routes submit={submit}/>
+      <Routes />
     </BrowserRouter>
   );
 }

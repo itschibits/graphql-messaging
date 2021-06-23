@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { NavLink } from "react-router-dom";
+import "./Navbar.css"
 
 /**
  * NavBar
@@ -11,9 +12,9 @@ import { NavLink } from "react-router-dom";
 function NavBar() {
 
     return (
-        <div className="NavBar">
-            <Navbar className="Navbg" expand="lg">
-                <Nav className="mr-auto">
+        <div className="NavBar Navbg" >
+            <Navbar expand="lg" variant="dark">
+                <Nav className="mr-auto" >
                     <NavLink exact to="/" className="nav-link navbar-brand">Apollo Messagely</NavLink>
                     <NavLink exact to="/users/new" className="nav-link">New User</NavLink>
                     <NavLink exact to="/messages/new" className="nav-link">New Message</NavLink>

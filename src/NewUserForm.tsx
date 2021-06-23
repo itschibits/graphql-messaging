@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import { useMutation } from "@apollo/client";
 import Form from "react-bootstrap/Form";
 import { newUser } from "./graphql"
+import { useHistory } from "react-router-dom";
 
 /** NewUserForm
  * 
@@ -19,8 +20,9 @@ function NewUserForm() {
     const initialState = { username: "", firstName: "", lastName: "" }
     const [formData, setFormData] = useState(initialState);
     const [addUser, { data }] = useMutation(newUser)
+    const history = useHistory();
 
-    function handleChange(evt: { target: { name: string, value: string; }; }){
+    function handleChange(evt: { target: { name: string, value: string; }; }) {
         const { name, value } = evt.target;
         setFormData(fData => ({
             ...fData,
@@ -28,36 +30,41 @@ function NewUserForm() {
         }));
     }
 
-    function handleSubmit(evt: { preventDefault: () => void; }){
+    function handleSubmit(evt: { preventDefault: () => void; }) {
         evt.preventDefault();
         console.log("handleSubmit");
-        addUser({variables: {username: formData.username,
-                             first_name: formData.firstName,
-                             last_name: formData.lastName}});
+        addUser({
+            variables: {
+                username: formData.username,
+                first_name: formData.firstName,
+                last_name: formData.lastName
+            }
+        });
+        history.push("/users");
     }
-    
+
     return (
         <Form onSubmit={handleSubmit}>
-            <Form.Control 
+            <Form.Control
                 type="username"
                 placeholder="username"
                 name="username"
                 value={formData["username"]}
-                onChange={handleChange}/>
+                onChange={handleChange} />
             <Form.Label>Username</Form.Label>
-            <Form.Control 
+            <Form.Control
                 type="firstName"
                 placeholder="First Name"
                 name="firstName"
                 value={formData["firstName"]}
-                onChange={handleChange}/>
+                onChange={handleChange} />
             <Form.Label>First Name</Form.Label>
-            <Form.Control 
+            <Form.Control
                 type="lastName"
                 placeholder="Last Name"
                 name="lastName"
                 value={formData["lastName"]}
-                onChange={handleChange}/>
+                onChange={handleChange} />
             <Form.Label>Last Name</Form.Label>
 
             <Button
