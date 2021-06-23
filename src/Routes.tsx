@@ -3,6 +3,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import NewMessageForm from './NewMessageForm';
 import NewUserForm from './NewUserForm';
 import LandingPage from './LandingPage';
+import { newUser } from './graphql'
 
 function Routes({submit}) {
     return (<div>

@@ -1,13 +1,8 @@
 import { useState } from "react";
 import { Button } from "react-bootstrap";
+import { useMutation } from "@apollo/client";
 import Form from "react-bootstrap/Form";
-
-type AppProps = {
-    newUser: (formData:{username:string,
-                        firstName:string,
-                        lastName:string})
-              => void
-};
+import { newUser } from "./graphql"
 
 /** NewUserForm
  * 
@@ -20,9 +15,10 @@ type AppProps = {
  * App -> NewUserForm
  */
 
-function NewUserForm({newUser}: AppProps) {
+function NewUserForm() {
     const initialState = { username: "", firstName: "", lastName: "" }
     const [formData, setFormData] = useState(initialState);
+    const [addUser, { data }] = useMutation(newUser)
 
     function handleChange(evt: { target: { name: string, value: string; }; }){
         const { name, value } = evt.target;
@@ -35,7 +31,9 @@ function NewUserForm({newUser}: AppProps) {
     function handleSubmit(evt: { preventDefault: () => void; }){
         evt.preventDefault();
         console.log("handleSubmit");
-        newUser(formData);
+        addUser({variables: {username: formData.username,
+                             first_name: formData.firstName,
+                             last_name: formData.lastName}});
     }
     
     return (
